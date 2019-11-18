@@ -15,6 +15,8 @@ def init_local_db(local_db = os.path.expanduser(r'~/scripts/leavesdb.db'), src_d
 		print(f'Copying sql db file from {src_db} to {local_db}')
 		shutil.copyfile(src_db, local_db)
 	print(f'Proceeding with sql db at location {local_db}')
+	
+	return local_db
 
 
 
