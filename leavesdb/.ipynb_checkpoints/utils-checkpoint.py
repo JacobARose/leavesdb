@@ -36,7 +36,7 @@ def __get_family_names_per_dataset(db):
         dataset_families.append((dataset_name, [fam.family for fam in distinct_families]))
     return dataset_families
 
-def get_num_families_per_dataset(db):
+def __get_num_families_per_dataset(db):
     '''
     Helper function similar to __get_family_names_per_dataset, but instead of tuple containing (dataset_name, list(family names)), 
     returns the total number of unique families for each dataset.
