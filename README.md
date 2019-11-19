@@ -16,7 +16,7 @@ To modify and push changes to git:
 
 1) Navigate to root directory of package (/leavesdb)
 
-2) git add <list of files to commit>
+2) git add [list of files to commit]
 	or
    git add --all
 
@@ -24,4 +24,4 @@ To modify and push changes to git:
 
 4) git push
 
-5) '<Enter GitHub login credentials>'
+5) '[Enter GitHub login credentials]'
