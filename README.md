@@ -24,4 +24,4 @@ To modify and push changes to git:
 
 4) git push
 
-5) <Enter GitHub login credentials>
+5) '<Enter GitHub login credentials>'
