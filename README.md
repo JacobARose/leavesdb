@@ -11,6 +11,18 @@ To install, follow procedure below:
 
 3) pip install -e .
 
+ENVIRONMENT SETUP:
+Note, this is simply a cloning of the conda environment used to create the package, and thus is not a minimum set of requirements. Creating a minimum environment specification is TBD.
+
+1) Navigate to the root /leavesdb directory containing environment spec file 'leavesdb.yml'
+
+2) conda env create -f leavesdb.yml -n leavesdb
+
+Note, where it says "-n leavesdb' above, you can replace 'leavesdb" with your preferred choice of env name.
+
+GETTING STARTED:
+Take a look at leaves_db_demo.ipynb in the root directory for an example of how to interact with the database and query data.
+
 MODIFICATION:
 To modify and push changes to git:
 
