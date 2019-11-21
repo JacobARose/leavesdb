@@ -36,7 +36,8 @@ def train_model(model,
 				max_epochs=None, 
 				callbacks=None,
 				workers=-1,
-				initial_epoch=0):
+				initial_epoch=0,
+				verbose=True):
 	
 	history = model.fit(
 						train_data,
@@ -46,5 +47,6 @@ def train_model(model,
 						validation_steps=validation_steps,
 						callbacks=callbacks,
 						workers=-1,
-						initial_epoch=initial_epoch)
+						initial_epoch=initial_epoch,
+						verbose=verbose)
 	return history

@@ -27,3 +27,26 @@ def build_model(num_classes, learning_rate):
 					metrics=['accuracy'])
 					
 	return model
+
+def train_model(model,
+				train_data,
+				validation_data=None, 
+				steps_per_epoch=None, 
+				validation_steps=None, 
+				max_epochs=None, 
+				callbacks=None,
+				workers=-1,
+				initial_epoch=0,
+				verbose=True):
+	
+	history = model.fit(
+						train_data,
+						steps_per_epoch=steps_per_epoch,
+						epochs=max_epochs,
+						validation_data=validation_data,
+						validation_steps=validation_steps,
+						callbacks=callbacks,
+						workers=-1,
+						initial_epoch=initial_epoch,
+						verbose=verbose)
+	return history
