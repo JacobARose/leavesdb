@@ -1,6 +1,7 @@
 import os
 import dataset
 from stuf import stuf
+import json 
 
 '''HELPER FUNCTIONS'''
 
@@ -63,3 +64,53 @@ def summarize_db(db):
     print('Database column keys:\n', db['dataset'].columns)
     print('Number of distinct families:\n', __get_num_families_per_dataset(db))
     print(f"Number of rows in db:\n {len(db['dataset'])}")
+
+def load(file):
+    '''
+    Helper function to load a json file. 
+
+    Arguments: 
+        - file : Path to the json file
+    Return:
+        - dictionary with the json
+    '''
+    with open(file,encoding='utf-8') as infile:
+        inside=json.load(infile)
+    return inside
+
+def save(file,obj):
+    '''
+    Helper function to save a json file. 
+
+    Arguments: 
+        - file : Path to the json file
+        - obj : python object to save in json format.
+    Return:
+        - dictionary with the json
+    '''
+    with open(file, 'w') as outfile:
+        json.dump(obj, outfile)
+
+def flattenit(pyobj, keystring =''): 
+    '''
+    Function to flatten a dictionary
+
+    Arguments: 
+        -pyobj python object
+        -keystring : String that is being looked for
+    
+    Returns : 
+        - flattened structure 
+    '''
+
+    if type(pyobj) is dict: 
+        if (type(pyobj) is dict): 
+            keystring = keystring + "_" if keystring else keystring 
+            for k in pyobj: 
+                yield from flattenit(pyobj[k], keystring + k) 
+  
+        elif (type(pyobj) is list): 
+            for lelm in pyobj: 
+                yield from flatten(lelm, keystring) 
+    else: 
+        yield keystring, pyobj 
