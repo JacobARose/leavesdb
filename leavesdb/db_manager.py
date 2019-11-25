@@ -26,9 +26,9 @@ def create_db(jsonpath='/media/data_cifs/irodri15/data/processed/datasets.json',
     table = db['dataset']
     counter= 0 
 
-    for dataset in file:
-        res = {k:v for k, v in flattenit(file[dataset])}
-        print(dataset)
+    for data_set in file:
+        res = {k:v for k, v in flattenit(file[data_set])}
+        print(data_set)
         for key in res: 
             if 'paths' in key:
                 names = key.split('_')[:-1]
@@ -37,7 +37,7 @@ def create_db(jsonpath='/media/data_cifs/irodri15/data/processed/datasets.json',
                     print(names[0])
                     for p  in res[key]:
                         table.insert(dict(path=p,
-                                      dataset=dataset,
+                                      dataset=data_set,
                                       family=names[0],
                                       specie='nn',
                                       genus='nn'
@@ -51,7 +51,7 @@ def create_db(jsonpath='/media/data_cifs/irodri15/data/processed/datasets.json',
                         if 'uncertain' in family:
                             family='uncertain'
                         table.insert(dict(path=p,
-                                      dataset=dataset,
+                                      dataset=data_set,
                                       family=names[0],
                                       specie=names[2],
                                       genus=names[1]
